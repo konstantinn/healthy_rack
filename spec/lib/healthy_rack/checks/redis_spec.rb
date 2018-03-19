@@ -27,7 +27,7 @@ RSpec.describe HealthyRack::Checks::Redis do
       context "when response is 'PONG'" do
         let(:redis) do
           Class.new do
-            def initialize(_url); end
+            def initialize(url:); end
 
             def ping
               'PONG'
@@ -43,7 +43,7 @@ RSpec.describe HealthyRack::Checks::Redis do
       context "when response is different from 'PONG'" do
         let(:redis) do
           Class.new do
-            def initialize(_url); end
+            def initialize(url:); end
 
             def ping
               'DEFINITELY NOT A PONG'
@@ -60,7 +60,7 @@ RSpec.describe HealthyRack::Checks::Redis do
     context 'when exception occured' do
       let(:redis) do
         Class.new do
-          def initialize(_url); end
+          def initialize(url:); end
 
           def ping
             raise 'ping pong failed'

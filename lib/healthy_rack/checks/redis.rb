@@ -13,7 +13,7 @@ module HealthyRack
       end
 
       def call
-        response = ::Redis.new(redis_url).ping
+        response = ::Redis.new(url: redis_url).ping
         response == 'PONG'
       rescue
         false
